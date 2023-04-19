@@ -1,0 +1,17 @@
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\bin\Debug\net6.0-windows\-WF_keyboard_19-04-2021.exe
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\bin\Debug\net6.0-windows\-WF_keyboard_19-04-2021.deps.json
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\bin\Debug\net6.0-windows\-WF_keyboard_19-04-2021.runtimeconfig.json
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\bin\Debug\net6.0-windows\-WF_keyboard_19-04-2021.dll
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\bin\Debug\net6.0-windows\-WF_keyboard_19-04-2021.pdb
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\obj\Debug\net6.0-windows\-WF_keyboard_19-04-2021.csproj.AssemblyReference.cache
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\obj\Debug\net6.0-windows\_WF_keyboard_19_04_2021.Form1.resources
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\obj\Debug\net6.0-windows\-WF_keyboard_19-04-2021.csproj.GenerateResource.cache
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\obj\Debug\net6.0-windows\-WF_keyboard_19-04-2021.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\obj\Debug\net6.0-windows\-WF_keyboard_19-04-2021.AssemblyInfoInputs.cache
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\obj\Debug\net6.0-windows\-WF_keyboard_19-04-2021.AssemblyInfo.cs
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\obj\Debug\net6.0-windows\-WF_keyboard_19-04-2021.csproj.CoreCompileInputs.cache
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\obj\Debug\net6.0-windows\-WF_keyboard_19-04-2021.dll
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\obj\Debug\net6.0-windows\refint\-WF_keyboard_19-04-2021.dll
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\obj\Debug\net6.0-windows\-WF_keyboard_19-04-2021.pdb
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\obj\Debug\net6.0-windows\-WF_keyboard_19-04-2021.genruntimeconfig.cache
+C:\Users\Fishman_1\Documents\GitHub\-WF_keyboard_19-04-2021\obj\Debug\net6.0-windows\ref\-WF_keyboard_19-04-2021.dll
