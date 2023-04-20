@@ -77,7 +77,8 @@ namespace _WF_keyboard_19_04_2021
         // обработчик события нажатия на кнопку мышкой, а дальше надо с клавиатуры 21-04-2023 00-55
         void butt_click(object sender, EventArgs e)
         {
-            MessageBox.Show("вы нажали" + sender);
+            // MessageBox.Show("вы нажали" + sender);
+            textBox2.Text += (((System.Windows.Forms.ButtonBase)sender).Text);
         }
 
     }
