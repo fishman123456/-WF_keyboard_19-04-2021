@@ -1,3 +1,6 @@
+using System.Windows.Forms;
+using System;
+
 namespace _WF_keyboard_19_04_2021
 {
     public partial class Form1 : Form
@@ -16,14 +19,14 @@ namespace _WF_keyboard_19_04_2021
         {
 
         }
-
-        public void func()
+        Button[] but = new Button[48];
+        string[] butnamestr = new string[1500];
+        char[] butname = new char[1500];
+        public Button[] func()
         {
             // запись клавиш в массив по юникоду
             #region
-            Button[] but = new Button[48];
-            string[] butnamestr = new string[1500];
-            char[] butname = new char[1500];
+
             for (int i = 1040; i < 1106; i++) // 1072-1103 строчные русские  1040-1071 прописные русские
             {
                 butname[i] = Convert.ToChar(i);
@@ -39,20 +42,21 @@ namespace _WF_keyboard_19_04_2021
                 }
             }
             #endregion
-            
+
             // создание клавиш
             #region
-            int y = 50, x = 50;
+            int y = 100, x = 50;
             int buttonWidth = 80;
             int buttonHeight = 50;
             for (int k = 0; k < 48; k++)
             {
                 but[k] = new Button();
                 but[k].Text = butnamestr[1072 + k]; // пока русские прописные
-                but[k].Name = butnamestr[1072 +k]; // именуем клавиши, потом сделаем обработчик по имени 20-04-2023
+                but[k].Name = butnamestr[1072 + k]; // именуем клавиши, потом сделаем обработчик по имени 20-04-2023
                 but[k].Location = new Point(x, y);
                 but[k].Size = new Size(buttonWidth, buttonHeight);
                 this.Controls.Add(but[k]);
+                but[k].Click += butt_click;
                 if ((k + 1) % 12 == 0)
                 {
                     x = 50;
@@ -61,8 +65,20 @@ namespace _WF_keyboard_19_04_2021
                 else
                     x += buttonWidth + 2;
             }
-            #endregion
-        }
-    }
 
+            #endregion
+            return but;
+        }
+
+        private void Form1_Click(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        // обработчик события нажатия на кнопку мышкой, а дальше надо с клавиатуры 21-04-2023 00-55
+        void butt_click(object sender, EventArgs e)
+        {
+            MessageBox.Show("вы нажали" + sender);
+        }
+
+    }
 }
