@@ -30,6 +30,7 @@
         {
             textBox1 = new TextBox();
             textBox2 = new TextBox();
+            button1 = new Button();
             SuspendLayout();
             // 
             // textBox1
@@ -53,11 +54,23 @@
             textBox2.Size = new Size(1047, 42);
             textBox2.TabIndex = 1;
             // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(884, 334);
+            button1.Name = "button1";
+            button1.Size = new Size(188, 26);
+            button1.TabIndex = 2;
+            button1.Text = "стереть верхний текстбокс";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1084, 461);
+            Controls.Add(button1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Name = "Form1";
@@ -71,5 +84,6 @@
 
         private TextBox textBox1;
         private TextBox textBox2;
+        private Button button1;
     }
 }

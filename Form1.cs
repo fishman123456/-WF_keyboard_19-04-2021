@@ -12,7 +12,7 @@ namespace _WF_keyboard_19_04_2021
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            func();
+            func_russ_big();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -22,7 +22,7 @@ namespace _WF_keyboard_19_04_2021
         Button[] but = new Button[48];
         string[] butnamestr = new string[1500];
         char[] butname = new char[1500];
-        public Button[] func()
+        public Button[] func_russ_small()
         {
             // запись клавиш в массив по юникоду
             #region
@@ -69,7 +69,54 @@ namespace _WF_keyboard_19_04_2021
             #endregion
             return but;
         }
+        public Button[] func_russ_big()
+        {
+            // запись клавиш в массив по юникоду
+            #region
 
+            for (int i = 1040; i < 1106; i++) // 1072-1103 строчные русские  1040-1071 прописные русские
+            {
+                butname[i] = Convert.ToChar(i);
+                butnamestr[i] = butname[i].ToString();
+            }
+            // если строка не пустая заполняем текстбокс
+            foreach (string st in butnamestr)
+            {
+                if (st != null)
+                {
+                    textBox1.Text += "\t";
+                    textBox1.Text += st;
+                }
+            }
+            #endregion
+
+            // создание клавиш
+            #region
+            int y = 100, x = 50;
+            int buttonWidth = 80;
+            int buttonHeight = 50;
+            for (int k = 0; k < 32; k++)
+            {
+                but[k] = new Button();
+                but[k].Text = butnamestr[1040 + k]; // пока русские прописные
+                but[k].Name = butnamestr[1040 + k]; // именуем клавиши, потом сделаем обработчик по имени 20-04-2023
+                but[k].Location = new Point(x, y);
+                but[k].Size = new Size(buttonWidth, buttonHeight);
+                this.Controls.Add(but[k]);
+                but[k].Click += butt_click;
+                if ((k + 1) % 12 == 0)
+                {
+                    x = 50;
+                    y += buttonHeight + 2;
+                }
+                else
+                    x += buttonWidth + 2;
+            }
+
+            #endregion
+            return but;
+        }
+       
         private void Form1_Click(object? sender, EventArgs e)
         {
             throw new NotImplementedException();
@@ -81,5 +128,9 @@ namespace _WF_keyboard_19_04_2021
             textBox2.Text += (((System.Windows.Forms.ButtonBase)sender).Text);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox2.Clear();
+        }
     }
 }
