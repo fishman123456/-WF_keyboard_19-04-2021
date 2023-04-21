@@ -42,6 +42,7 @@ namespace _WF_keyboard_19_04_2021
                 ArrBut[k].Name = RKey[k]; // именуем клавиши, потом сделаем обработчик по имени 20-04-2023
                 ArrBut[k].Location = new Point(x, y);
                 ArrBut[k].Size = new Size(buttonWidth, buttonHeight);
+                ArrBut[k].BackColor = Color.WhiteSmoke;
                 this.Controls.Add(ArrBut[k]);
                 ArrBut[k].Click += butt_click;
 
@@ -67,10 +68,11 @@ namespace _WF_keyboard_19_04_2021
         // отлавливаем нажатие клавиш физических
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            for (int k = 0; k < 35; k++)
+            try
             {
-                try
+                for (int k = 0; k < 35; k++)
                 {
+
                     if (e.KeyValue == (char)EKeyNum[k])
                     {
                         ArrBut[k].PerformClick();
@@ -79,11 +81,10 @@ namespace _WF_keyboard_19_04_2021
                         break;
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -91,6 +92,13 @@ namespace _WF_keyboard_19_04_2021
         private void button1_Click(object sender, EventArgs e)
         {
             textBox2.Clear();
+
+            for (int k = 0; k < 33; k++)
+            {
+                ArrBut[k].BackColor = Color.WhiteSmoke;
+            }
+                
+            
         }
     }
 }
