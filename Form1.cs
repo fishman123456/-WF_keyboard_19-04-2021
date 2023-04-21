@@ -17,100 +17,34 @@ namespace _WF_keyboard_19_04_2021
             func_russ_big();
 
         }
-        private static string[] RKey = new string[] { "Ф", "Ы", "В", "А", "Й", "Ц", "У", "К", "Е", "Н", "Г",
-            "Ш", "Щ", "З", "Х", "Ъ", "П", "Р", "О", " ", "Л", "Д", "Ж", "Э", "Ё", "Я", "Ч", "С", "М", "И", "Т", "Ь", "Б", "Ю", "." };
-        private static string[] EKey = new string[] { "A", "S", "D", "F", "Q", "W", "E", "R", "T", "Y", "U",
-            "I", "O", "P", "[", "]", "G", "H", "J", "Space", "K", "L", ";", "'", "`", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/" };
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+        // массив с русскими клавишами
+        private static string[] RKey = new string[] {  "Й", "Ц", "У", "К", "Е", "Н", "Г",
+            "Ш", "Щ", "З", "Х", "Ъ", "Ф", "Ы", "В", "А", "П", "Р", "О", "Л", "Д", "Ж", "Э", "Я", "Ч", "С", "М", "И", "Т", "Ь", "Б", "Ю", "." };
+        // массив с английскими клавишами
+        private static string[] EKey = new string[] {  "Q", "W", "E", "R", "T", "Y", "U",
+            "I", "O", "P", "[", "]", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/" };
+        // массив с DEC код клавиши английско / русскими (на одной клавише два знака)
+        private static int[] EKeyNum = new int[] {  81, 87, 69, 82, 84, 89, 85,
+            73, 79, 80, 219, 221, 65, 83, 68, 70, 71, 72, 74, 75, 76, 186, 222, 90, 88, 67, 86, 66, 78, 77, 188, 190, 191 };
 
-        }
-        Button[] but = new Button[48];
-        string[] butnamestr = new string[1500];
-        char[] butname = new char[1500];
-        public Button[] func_russ_small()
-        {
-            // запись клавиш в массив по юникоду
-            #region
-
-            for (int i = 1040; i < 1106; i++) // 1072-1103 строчные русские  1040-1071 прописные русские
-            {
-                butname[i] = Convert.ToChar(i);
-                butnamestr[i] = butname[i].ToString();
-            }
-            // если строка не пустая заполняем текстбокс
-            foreach (string st in butnamestr)
-            {
-                if (st != null)
-                {
-                    textBox1.Text += "\t";
-                    textBox1.Text += st;
-                }
-            }
-            #endregion
-
-            // создание клавиш
-            #region
-            int y = 100, x = 50;
-            int buttonWidth = 80;
-            int buttonHeight = 50;
-            for (int k = 0; k < 48; k++)
-            {
-                but[k] = new Button();
-                but[k].Text = butnamestr[1072 + k]; // пока русские прописные
-                but[k].Name = butnamestr[1072 + k]; // именуем клавиши, потом сделаем обработчик по имени 20-04-2023
-                but[k].Location = new Point(x, y);
-                but[k].Size = new Size(buttonWidth, buttonHeight);
-                this.Controls.Add(but[k]);
-                but[k].Click += butt_click;
-                if ((k + 1) % 12 == 0)
-                {
-                    x = 50;
-                    y += buttonHeight + 2;
-                }
-                else
-                    x += buttonWidth + 2;
-            }
-
-            #endregion
-            return but;
-        }
+        public static Button[] ArrBut = new Button[35];
         public Button[] func_russ_big()
         {
-            // запись клавиш в массив по юникоду
-            #region
-
-            for (int i = 1040; i < 1106; i++) // 1072-1103 строчные русские  1040-1071 прописные русские
-            {
-                butname[i] = Convert.ToChar(i);
-                butnamestr[i] = butname[i].ToString();
-            }
-            // если строка не пустая заполняем текстбокс
-            foreach (string st in butnamestr)
-            {
-                if (st != null)
-                {
-                    textBox1.Text += "\t";
-                    textBox1.Text += st;
-                }
-            }
-            #endregion
-
             // создание клавиш
             #region
             int y = 100, x = 50;
             int buttonWidth = 80;
             int buttonHeight = 50;
-            for (int k = 0; k < 32; k++)
+            for (int k = 0; k < 33; k++)
             {
-                but[k] = new Button();
-                but[k].Text = butnamestr[1040 + k]; // пока русские прописные
-                but[k].Name = butnamestr[1040 + k]; // именуем клавиши, потом сделаем обработчик по имени 20-04-2023
-                but[k].Location = new Point(x, y);
-                but[k].Size = new Size(buttonWidth, buttonHeight);
-                this.Controls.Add(but[k]);
-                but[k].Click += butt_click;
-                
+                ArrBut[k] = new Button();
+                ArrBut[k].Text = RKey[k]; // пока русские прописные
+                ArrBut[k].Name = RKey[k]; // именуем клавиши, потом сделаем обработчик по имени 20-04-2023
+                ArrBut[k].Location = new Point(x, y);
+                ArrBut[k].Size = new Size(buttonWidth, buttonHeight);
+                this.Controls.Add(ArrBut[k]);
+                ArrBut[k].Click += butt_click;
+
                 if ((k + 1) % 12 == 0)
                 {
                     x = 50;
@@ -119,48 +53,41 @@ namespace _WF_keyboard_19_04_2021
                 else
                     x += buttonWidth + 2;
             }
-
             #endregion
-            return but;
+            return ArrBut;
         }
 
-        private void Form1_Click(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-        // обработчик события нажатия на кнопку мышкой, а дальше надо с клавиатуры 21-04-2023 00-55
+
+        // нажатие на кнопку в форме мышкой
         void butt_click(object sender, EventArgs e)
         {
             // MessageBox.Show("вы нажали" + sender);
             textBox2.Text += (((System.Windows.Forms.ButtonBase)sender).Text);
-
         }
-        // функция нажатия клавиши, на клавиатуре надо вручную перебирать и ещё с языком разобраться
-        void KeybordKeyPress(object sender, KeyPressEventArgs e)
+        // отлавливаем нажатие клавиш физических
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-           
-            switch (e.KeyChar)
+            for (int k = 0; k < 35; k++)
             {
-                case (char)70: // русская а
-                    but[0].PerformClick();
-                    but[0].BackColor = Color.Red;
-                    break;
-                case (char)188:  // русская б
-                    but[1].PerformClick();
-                    but[0].BackColor = Color.Green;
-                    break;
-                case (char)52:
-                    but[2].PerformClick();
-                    break;
-                default: 
-                    foreach(Control c in this.Controls)
+                try
+                {
+                    if (e.KeyValue == (char)EKeyNum[k])
                     {
-                        c.BackColor = Color.White;
+                        ArrBut[k].PerformClick();
+                        ArrBut[k].BackColor = Color.Red;
+                        //MessageBox.Show(e.KeyValue.ToString());
+                        break;
                     }
-                   break;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
         }
 
+        // очищаем верхний текстбокс
         private void button1_Click(object sender, EventArgs e)
         {
             textBox2.Clear();

@@ -42,7 +42,6 @@
             textBox1.ScrollBars = ScrollBars.Vertical;
             textBox1.Size = new Size(1047, 71);
             textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
             // 
@@ -57,7 +56,7 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(884, 334);
+            button1.Location = new Point(871, 334);
             button1.Name = "button1";
             button1.Size = new Size(188, 26);
             button1.TabIndex = 2;
@@ -69,13 +68,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1084, 461);
+            ClientSize = new Size(1074, 461);
             Controls.Add(button1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
+            MaximumSize = new Size(1090, 500);
             Name = "Form1";
-            Text = "Form1";
+            Text = "U-83";
             Load += Form1_Load;
+            KeyDown += Form1_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }
