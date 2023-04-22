@@ -18,9 +18,12 @@ namespace _WF_keyboard_19_04_2021
             func_russ_big();
 
         }
+        // номер элемента в списке из файла
+        int num = 0;
         // массив с русскими клавишами
-        private static string[] RKey = new string[] {  "Й", "Ц", "У", "К", "Е", "Н", "Г",
-            "Ш", "Щ", "З", "Х", "Ъ", "Ф", "Ы", "В", "А", "П", "Р", "О", "Л", "Д", "Ж", "Э", "Я", "Ч", "С", "М", "И", "Т", "Ь", "Б", "Ю", "." };
+        private static string[] RKey = new string[] {  "й", "ц", "у", "к", "е", "н", "г",
+            "ш", "щ", "з", "х", "ъ", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э", "я",
+            "ч", "с", "м", "и", "т", "ь", "б", "ю", "." };
         // массив с английскими клавишами
         private static string[] EKey = new string[] {  "Q", "W", "E", "R", "T", "Y", "U",
             "I", "O", "P", "[", "]", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/" };
@@ -66,12 +69,31 @@ namespace _WF_keyboard_19_04_2021
         void butt_click(object sender, EventArgs e)
         {
             // MessageBox.Show("вы нажали" + sender);
-            textBox2.Text += (((System.Windows.Forms.ButtonBase)sender).Text);
-            textBox1.Focus();
+            textBoxRus.Text += (((System.Windows.Forms.ButtonBase)sender).Text);
+            textBoxEng.Focus();
         }
         // отлавливаем нажатие клавиш физических
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    textBoxWords.Clear();
+                    textBoxRus.Clear();
+                    textBoxEng.Clear();
+                    textBoxWords.Text = Words[num];
+                    num++;
+
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                textBoxWords.Text = "Загрузите файл!";
+                return;
+            }
+
             try
             {
                 for (int k = 0; k < 35; k++)
@@ -95,15 +117,13 @@ namespace _WF_keyboard_19_04_2021
         // очищаем верхний текстбокс
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox2.Clear();
-            textBox1.Clear();
+            //textBoxRus.Clear();
+            //textBoxEng.Clear();
 
-            for (int k = 0; k < 33; k++)
-            {
-                ArrBut[k].BackColor = Color.WhiteSmoke;
-            }
-
-
+            //for (int k = 0; k < 33; k++)
+            //{
+            //    ArrBut[k].BackColor = Color.WhiteSmoke;
+            //}
         }
         // откраваем файл и считываем текст 22-04-2023 15-29
         private async void buttonLoadFile_Click(object sender, EventArgs e)
@@ -121,13 +141,51 @@ namespace _WF_keyboard_19_04_2021
                     // создаем разделитель по переносу строки
                     string[] stringSeparators = new string[] { "\r\n" };
                     string[] lines = text.Split(stringSeparators, StringSplitOptions.None);
-                   // заполняем список словами
+                    // заполняем список словами
                     foreach (string s in lines)
                     {
                         Words.Add(s);
                     }
                 }
             }
+            textBoxWords.Text = "Файл загружен, только прописные, для начала нажмите ENTER при активной форме (щелкните по форме)";
+            textBoxEng.Focus();
+        }
+        // TODO сравнение тексбокса word & rus 16:26 22-04-23
+        public void comparison()
+        {
+
+        }
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void textBoxWords_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxRus_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxWords.Text == textBoxRus.Text)
+            {
+                textBoxEng.Focus();
+                button1_Click(button1, null);
+                label1.Text = "Верно";
+                // снимаем красный цвет
+
+            }
+            else label1.Text = "Не верно, щелкните по форме";
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            for (int k = 0; k < 33; k++)
+            {
+                ArrBut[k].BackColor = Color.WhiteSmoke;
+            }
+            SendKeys.SendWait("{ENTER}");
         }
     }
 }
