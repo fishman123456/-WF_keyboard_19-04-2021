@@ -31,6 +31,9 @@
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             button1 = new Button();
+            openFileDialog1 = new OpenFileDialog();
+            saveFileDialog1 = new SaveFileDialog();
+            buttonLoadFile = new Button();
             SuspendLayout();
             // 
             // textBox1
@@ -39,24 +42,22 @@
             textBox1.Location = new Point(12, 366);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.ScrollBars = ScrollBars.Vertical;
-            textBox1.Size = new Size(1047, 71);
+            textBox1.Size = new Size(1047, 30);
             textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
             textBox2.Font = new Font("Arial", 12F, FontStyle.Italic, GraphicsUnit.Point);
-            textBox2.Location = new Point(12, 12);
+            textBox2.Location = new Point(11, 330);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.ScrollBars = ScrollBars.Vertical;
-            textBox2.Size = new Size(1047, 42);
+            textBox2.Size = new Size(1047, 30);
             textBox2.TabIndex = 1;
             // 
             // button1
             // 
             button1.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(871, 334);
+            button1.Location = new Point(870, 420);
             button1.Name = "button1";
             button1.Size = new Size(188, 26);
             button1.TabIndex = 2;
@@ -64,11 +65,26 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // buttonLoadFile
+            // 
+            buttonLoadFile.Location = new Point(670, 420);
+            buttonLoadFile.Name = "buttonLoadFile";
+            buttonLoadFile.Size = new Size(186, 26);
+            buttonLoadFile.TabIndex = 3;
+            buttonLoadFile.Text = "загрузить файл слов";
+            buttonLoadFile.UseVisualStyleBackColor = true;
+            buttonLoadFile.Click += buttonLoadFile_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1074, 461);
+            Controls.Add(buttonLoadFile);
             Controls.Add(button1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
@@ -86,5 +102,8 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private Button button1;
+        private OpenFileDialog openFileDialog1;
+        private SaveFileDialog saveFileDialog1;
+        private Button buttonLoadFile;
     }
 }
